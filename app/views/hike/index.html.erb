@@ -1,0 +1,8 @@
+<h1> All the Hikes! </h1>
+<% @hikes.map do |value|%>
+<ul>
+  <li>
+    <%= link_to "#{value.name}","/hikes/#{value.id}" %>
+  </li>
+</ul>
+<% end %>
