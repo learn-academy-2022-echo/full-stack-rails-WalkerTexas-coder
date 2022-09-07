@@ -2,7 +2,9 @@
 <% @hikes.map do |value|%>
 <ul>
   <li>
-    <%= link_to "#{value.name}","/hikes/#{value.id}" %>
+  <%# <%= link_to "#{value.name}","/hikes/#{value.id}" %>
+    <%= link_to value.name, hike_path(value) %>
   </li>
 </ul>
 <% end %>
+<%= link_to 'Add a new Hike', new_hike_path %>

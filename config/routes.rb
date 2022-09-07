@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "hike#index"
   # index route
-  get 'hikes' => 'hike#index'
+  get 'hikes' => 'hike#index', as: 'hikes'
+  # new route 
+  get 'hikes/new' => 'hike#new', as: 'new_hike'
   # show route
-  get 'hikes/:id' => 'hike#show'
+  get 'hikes/:id' => 'hike#show', as: 'hike'
+  # create route
+  post 'hikes' => 'hike#create'
 end
