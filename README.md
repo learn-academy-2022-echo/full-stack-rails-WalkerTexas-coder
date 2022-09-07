@@ -74,5 +74,15 @@
   #### Strong Params
  -  utelizing the params method and the require we can identify what we are allowing to be sent into our application and reject everything else
 
+ ### updating the New View and controller
+  Currently our view does not allow for the information to be published to our database. Require is calling on a symbol of :hike that should represent a generic object for our class. TO navigate this we need to 
+  - change the form_with method from using
+    - url: 'table_name', local: true 
+    to
+    - model: @instance_variable
+  
+  This means we need a generic instance of our class to send over from the new method with we can creat by assigning an @instance_variable to ModelName.new
+  - in my case @hike = Hike.new
+
 # Update
 # Delete

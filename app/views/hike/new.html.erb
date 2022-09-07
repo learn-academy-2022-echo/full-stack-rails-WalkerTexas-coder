@@ -1,5 +1,5 @@
 <h2>Add a new Hike</h2>
-<%= form_with model: @hike do |form| %>
+<%= form_with url: '/hikes', local: true do |form| %>
 
   <%= form.label :name %>
   <%= form.text_field :name %>
