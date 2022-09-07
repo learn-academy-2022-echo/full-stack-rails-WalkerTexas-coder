@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "hike#index"
   # index route
   get 'hikes' => 'hike#index', as: 'hikes'
-  # new route
+  # new route 
   get 'hikes/new' => 'hike#new', as: 'new_hike'
   # show route
   get 'hikes/:id' => 'hike#show', as: 'hike'

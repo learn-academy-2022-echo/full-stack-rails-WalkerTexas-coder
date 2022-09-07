@@ -47,22 +47,32 @@
   get 'hikes/:id' => 'hike#show', as: 'hike'
   - using the alias name rails expects "_path" appended to the end of the alias name
     ex. hikes_path
-  - update the existing link_to's to utelize the route alias's
-  ## New
+  - update the existing link_to's to utilize the route aliases
+  ## RESTful Action New - gives us an HTML Form to fill out
   - create a method stub called new
   - create a view for new
   - create a route for new
     - route should have an alias of 'new_hike'
   - Create a form to fill out for the new hike
   ### form_with
-    - form_with method
-    - form.label
-    - form.text_field
+  - [form_with](https://apidock.com/rails/v5.2.3/ActionView/Helpers/FormHelper/form_with) method
+    - takes arguments of 
+      - url:
+      - model:
+      - method:
+      - local:
+  - form.label
+  - form.text_field
 
   ## Create
   - create a create method that assigns a variable to an active record query 
-  ### Private
+  - create a route that allows an HTTP post request to be called to our application and maps to create method
 
+  ### Private
+  private methods are methods defined under the private keyword. Private methods can only be used within the class definition; they’re for internal usage. The only way to have external access to a private method is to call it within a public method. so the private method splits the class in two. everything above it can be seen by things outside of this class explicitly and and anything inside it can only be seen by other methods in the class.
+
+  #### Strong Params
+ -  utelizing the params method and the require we can identify what we are allowing to be sent into our application and reject everything else
 
 # Update
 # Delete
