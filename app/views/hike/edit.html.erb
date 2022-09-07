@@ -1,4 +1,4 @@
-<h2>Add a new Hike</h2>
+<h2>Edit an existing Hike</h2>
 <%= form_with model: @hike do |form| %>
 
   <%= form.label :name %>
@@ -8,5 +8,6 @@
   <%= form.text_field :description %>
 
   <br>
-  <%= form.submit 'Add Hike'%>
+  <%= form.submit 'Edit Hike'%>
 <% end %>
+

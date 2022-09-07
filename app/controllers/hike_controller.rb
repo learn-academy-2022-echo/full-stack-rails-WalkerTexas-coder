@@ -22,6 +22,33 @@ class HikeController < ApplicationController
     end
   end
 
+# Edit
+  def edit
+    @hike = Hike.find(params[:id])
+  end
+
+# Update
+  def update
+    # pull out an instance from the database
+    @hike = Hike.find(params[:id])
+    # overwrite the instance in the database
+    @hike.update(hike_params)
+
+    # check if the overwrite was valid and updated
+    if @hike.valid?
+      redirect_to hike_path(@hike)
+    else
+      redirect_to edit_hike_path(@hike)
+    end
+  end
+
+  def destroy
+    @hike = Hike.find(params[:id])
+   if @hike.destroy
+    redirect_to hikes_path
+   end
+  end
+
 # private
   private
 # strong params 
