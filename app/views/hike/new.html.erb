@@ -1,0 +1,12 @@
+<h2>Add a new Hike</h2>
+<%= form_with url: '/hikes', local: true do |form| %>
+
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+
+  <br>
+  <%= form.submit 'Add Hike'%>
+<% end %>
