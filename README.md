@@ -81,8 +81,56 @@
     to
     - model: @instance_variable
   
-  This means we need a generic instance of our class to send over from the new method with we can creat by assigning an @instance_variable to ModelName.new
+  This means we need a generic instance of our class to send over from the new method with we can create by assigning an @instance_variable to ModelName.new
   - in my case @hike = Hike.new
 
 # Update
+  ## RESTful Action Edit - gives us an HTML Form to fill out
+  ### Controller
+  - create a new method called edit
+    - pull the instance from the database that we want to update and hold it as a variable 
+  
+  ### Views
+  - a form for updating an existing instance in teh database
+  - the edit form should populate the fields with the current data 
+  - bring in a rails form using form_with
+  ### Routes 
+```ruby
+  get 'hikes/edit/:id' => 'hike#edit', as: 'edit_hike'
+```
+# _________________
+  ## Update 
+  ### Controller
+  - create a new method called update
+  - use params to identify which item to update
+  - use the variable and call .update on it
+  - then use strong params to pass through information to the update method
+  ### Views
+ - no view needed
+  ### Routes 
+  - patch request
+  - uses id
+```ruby
+patch 'hikes/:id' => 'hike#update' 
+```
+
+
 # Delete
+  ## RESTful Action Destroy - removes an instance from the database
+
+### Controller
+  - create a method called destroy
+  - method takes in a single instance from the database using params
+    - and saves it to a variable
+  - call the active record query .destroy
+    - create a conditional that checks if the record was destroyed and redirects you to the index page
+### Routes
+```ruby
+delete 'hikes/:id' => 'hike#destroy' 
+``` 
+### Views
+put this code in your show page or edit page
+- edit page may need some finagling
+```ruby
+<%= button_to 'Delete Item', delete_hike_path(@hike), method: :delete, form:{data: { 'turbo-confirm': 'Are you sure?'} }%>
+```

@@ -11,4 +11,10 @@ Rails.application.routes.draw do
   get 'hikes/:id' => 'hike#show', as: 'hike'
   # create route
   post 'hikes' => 'hike#create'
+  # Edit route
+  get 'hikes/edit/:id' => 'hike#edit', as: 'edit_hike'
+  # Update route
+  patch 'hikes/:id' => 'hike#update' 
+  # Destroy route
+  delete 'hikes/:id' => 'hike#destroy', as: 'delete_hike'
 end
